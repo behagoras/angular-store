@@ -45,6 +45,8 @@ export class ProductComponent implements OnChanges, OnInit, OnDestroy {
     console.log('3. ngOnDestroy producto',this.product.id, ', Llamada#', i++);
   }
 
+  today = new Date()
+
   @Input() product: Product; // Equivalente a prop, dónde le vamos a pasar la data al componente
   @Output() clickAddToCart = new EventEmitter<any>(); // (clickAddToCart)= eventHandler($event):function
   addToCart(){

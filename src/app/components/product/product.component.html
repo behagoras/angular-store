@@ -4,4 +4,5 @@
 </figure>
 <strong>{{ product.price | currency:'MXN':true }}</strong>
 <p>{{ product.description | slice:0:10 }}</p>
+<p>{{ today | date:'longDate'}}</p>
 <button (click)="addToCart()">Agregar al carrito</button>
