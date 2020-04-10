@@ -59,4 +59,7 @@ export class AppComponent {
   deleteItem(index:number) {
     this.array.splice(index,1)
   }
+  handleProductAddToCart(id: number) {
+    console.log('product -> id', id);
+  }
 }

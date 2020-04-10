@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../product.model';
 
 @Component({
@@ -8,11 +8,9 @@ import { Product } from '../../product.model';
 
 export class ProductComponent {
   constructor() { }
-  product: Product = {
-    id: '4',
-    image: 'assets/images/pin.png',
-    title: 'Pin',
-    price: 80000,
-    description: 'bla bla bla bla bla'
-  };
+  @Input() product: Product; // Equivalente a prop, dónde le vamos a pasar la data al componente
+  @Output() clickAddToCart = new EventEmitter<any>(); // (clickAddToCart)= eventHandler($event):function
+  addToCart(){
+    this.clickAddToCart.emit(this.product.id)
+  }
 }
