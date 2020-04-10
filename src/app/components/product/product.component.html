@@ -1,9 +1,7 @@
-<h3>{{ product.title }}</h3>
-<div>
-  <figure>
-    <img style="width: 200px;" [src]="product.image" alt="">
-  </figure>
-  <div>{{ product.image }}</div>
-  <strong>$ {{ product.price }}</strong>
-  <button (click)="addToCart()">Agregar al carrito</button>
-</div>
+<h3>{{ product.title | uppercase }}</h3>
+<figure>
+  <img [src]="product.image" alt="">
+</figure>
+<strong>{{ product.price | currency:'MXN':true }}</strong>
+<p>{{ product.description | slice:0:10 }}</p>
+<button (click)="addToCart()">Agregar al carrito</button>

@@ -1,0 +1,11 @@
+:host {// Se refiere al componente padre, en este caso app-product
+  border: 1px solid black;
+  display: block;
+  border-radius: 5px;
+  padding: 20px;
+}
+figure {
+  & img {
+    max-width: 100%;
+  }
+}

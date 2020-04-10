@@ -1,7 +1,7 @@
 
 <!-- <app-test></app-test> -->
-<div *ngFor="let product of products">
-  <app-product
+<div class="products">
+  <app-product *ngFor="let product of products"
     (clickAddToCart)="handleProductAddToCart($event)"
     [product]="product"
   ></app-product>
