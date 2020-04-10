@@ -1,0 +1,42 @@
+
+<h1>{{title}}</h1>
+
+<div *ngIf="title==='david'"> <!-- Sólo se mostrará si la condición es verdadera
+-->
+Esto se muestra en un ngIf
+</div>
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'david'">Este es david</p>
+  <p *ngSwitchCase="'nicolas'">Este es nicolas</p>
+  <p *ngSwitchCase="'julian'">Este es julian</p>
+  <p *ngSwitchDefault>No hace match, intenta con 'david'</p>
+</div>
+<input type="text" [(ngModel)]="title"> <!-- Needs to import FormsModule in app.module.ts -->
+<button (click)="addItem()">Add item</button>
+<ul>
+  <li *ngIf="array.length===0">La lista está vacía</li>
+  <li *ngFor="let item of array;index as i">
+    {{item}} ({{i}})
+    <button (click)="deleteItem(i)">Delete</button>
+  </li>
+</ul>
+
+
+
+<form onsubmit="addItem()">
+  <button (click)="addItem()">Add item</button>
+  <input type="text" [(ngModel)]="input"> <!-- Needs to import FormsModule in app.module.ts -->
+</form>
+
+<h1>{{input}}</h1>
+
+<div *ngFor="let product of products">
+  {{ product.title }}
+  <img [src]="product.image" alt="">
+  {{ product.image }}
+  {{ product.price }}
+</div>
+
+<p>
+  {{ "Hola Mundo " + 1 }}
+</p>
