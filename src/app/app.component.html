@@ -1,7 +1,9 @@
+<input type="text" [(ngModel)]="power">
+{{ power | exponential:3 }}
 
 <!-- <app-test></app-test> -->
 <div class="products">
-  <app-product *ngFor="let product of products"
+  <app-product appHighlight *ngFor="let product of products"
     (clickAddToCart)="handleProductAddToCart($event)"
     [product]="product"
   ></app-product>

@@ -6,6 +6,7 @@ import {Product} from './product.model'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  power = 10;
   title = 'platzi-store';
   input = '';
   array = ['🍎', '🍏', '🍇', '🍌', '🍑'];

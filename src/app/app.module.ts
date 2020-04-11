@@ -9,6 +9,8 @@ import { ProductComponent } from './components/product/product.component'
 import { TestComponent } from './components/test/test.component';
 import { CartComponent } from './components/cart/cart.component';
 import { registerLocaleData } from '@angular/common';
+import { ExponentialPipe } from './exponential.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 registerLocaleData(localeEs);
 
@@ -17,7 +19,9 @@ registerLocaleData(localeEs);
     AppComponent,
     ProductComponent,
     TestComponent,
-    CartComponent
+    CartComponent,
+    ExponentialPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
