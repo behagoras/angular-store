@@ -1,0 +1,7 @@
+nav a {
+  padding:5px;
+  text-decoration: none;
+  &.active {
+    background-color: papayawhip;
+  }
+}

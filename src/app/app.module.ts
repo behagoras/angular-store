@@ -17,6 +17,8 @@ import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+// import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 registerLocaleData(localeEs);
 
@@ -33,7 +35,9 @@ registerLocaleData(localeEs);
     ContactComponent,
     HeaderComponent,
     FooterComponent,
-    BannerComponent
+    BannerComponent,
+    NotFoundComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

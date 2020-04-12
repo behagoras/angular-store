@@ -4,22 +4,32 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component'
 import { ContactComponent } from './contact/contact.component';
 import { TestComponent } from './test/test.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 const routes: Routes = [
   {
-    path:'home',
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: HomeComponent
   },
   {
-    path:'products',
+    path: 'products',
     component: ProductsComponent
   },
   {
-    path:'contact',
+    path: 'contact',
     component: ContactComponent
   },
   {
-    path:'demo',
+    path: 'demo',
     component: TestComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   },
 ];
 
