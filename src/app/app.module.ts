@@ -11,12 +11,10 @@ import { CartComponent } from './components/cart/cart.component';
 import { registerLocaleData } from '@angular/common';
 import { ExponentialPipe } from './exponential.pipe';
 import { HighlightDirective } from './highlight.directive';
-import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { BannerComponent } from './components/banner/banner.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -31,12 +29,10 @@ registerLocaleData(localeEs);
     CartComponent,
     ExponentialPipe,
     HighlightDirective,
-    HomeComponent,
     ProductsComponent,
     ContactComponent,
     HeaderComponent,
     FooterComponent,
-    BannerComponent,
     NotFoundComponent,
     ProductDetailComponent,
     LayoutComponent

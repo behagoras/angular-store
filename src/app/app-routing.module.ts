@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, Route, UrlSegment } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component'
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+
+import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { TestComponent } from './test/test.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -15,19 +15,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: '/home',
         pathMatch: 'full',
       },
       {
         path: 'home',
-        component: HomeComponent
-      },
-      {
-        // path: '',
-        component: HomeComponent,
-        matcher: (url: UrlSegment[]) => {
-          return url.length === 1 && url[0].path.endsWith('.html') ? ({consumed: url}) : null;
-        },
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'products',
@@ -41,20 +34,22 @@ const routes: Routes = [
         path: 'contact',
         component: ContactComponent
       },
-      {
-        path: 'demo',
-        component: TestComponent
-      },
-      {
-        path: '**',
-        component: NotFoundComponent
-      },
     ]
   },
+  {
+    path: 'demo',
+    component: TestComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
