@@ -9,8 +9,11 @@ import {
   // DoCheck,
   OnDestroy
 } from '@angular/core';
-import { Product } from '../../product.model';
+import { Product } from '../../../product.model';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es-MX';
 
+registerLocaleData(localeEs);
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',

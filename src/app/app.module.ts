@@ -5,14 +5,11 @@ import { FormsModule } from '@angular/forms'
 import localeEs from '@angular/common/locales/es-MX';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './components/product/product.component'
 import { TestComponent } from './test/test.component';
 import { CartComponent } from './components/cart/cart.component';
 import { registerLocaleData } from '@angular/common';
-import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { LayoutComponent } from './layout/layout.component';
 
 import { SharedModule } from './shared/shared.module'
@@ -23,13 +20,10 @@ registerLocaleData(localeEs);
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
     TestComponent,
     CartComponent,
-    ProductsComponent,
     ContactComponent,
     NotFoundComponent,
-    ProductDetailComponent,
     LayoutComponent
   ],
   imports: [
