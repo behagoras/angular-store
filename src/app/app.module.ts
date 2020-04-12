@@ -14,6 +14,9 @@ import { HighlightDirective } from './highlight.directive';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 registerLocaleData(localeEs);
 
@@ -27,7 +30,10 @@ registerLocaleData(localeEs);
     HighlightDirective,
     HomeComponent,
     ProductsComponent,
-    ContactComponent
+    ContactComponent,
+    HeaderComponent,
+    FooterComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
