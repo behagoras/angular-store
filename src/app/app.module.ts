@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { LayoutComponent } from './layout/layout.component';
 
 registerLocaleData(localeEs);
 
@@ -37,7 +38,8 @@ registerLocaleData(localeEs);
     FooterComponent,
     BannerComponent,
     NotFoundComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
