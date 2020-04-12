@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/product.model';
+import { Product } from '../product.model';
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
 })
-export class TestComponent  {
-  title = 'platzi-store';
-  input = '';
-  array = ['🍎', '🍏', '🍇', '🍌', '🍑'];
+export class ProductsComponent implements OnInit {
+
+  constructor() { }
   products: Product[] = [
     {
       id: '1',
@@ -54,10 +53,10 @@ export class TestComponent  {
       description: 'bla bla bla bla bla'
     },
   ];
-  addItem() {
-    this.array.push(this.title)
+  handleProductAddToCart(id: number) {
+    console.log('product -> id', id);
   }
-  deleteItem(index:number) {
-    this.array.splice(index,1)
+  ngOnInit(): void {
   }
+
 }

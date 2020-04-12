@@ -30,13 +30,9 @@ Esto se muestra en un ngIf
 
 <h1>{{input}}</h1>
 
-<div *ngFor="let product of products">
-  {{ product.title }}
-  <img [src]="product.image" alt="">
-  {{ product.image }}
-  {{ product.price }}
-</div>
-
 <p>
   {{ "Hola Mundo " + 1 }}
 </p>
+
+<input type="text" [(ngModel)]="power">
+{{ power | exponential:3 }}

@@ -1,0 +1,6 @@
+<div class="products">
+  <app-product appHighlight *ngFor="let product of products"
+    (clickAddToCart)="handleProductAddToCart($event)"
+    [product]="product"
+  ></app-product>
+</div>

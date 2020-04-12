@@ -6,11 +6,14 @@ import localeEs from '@angular/common/locales/es-MX';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component'
-import { TestComponent } from './components/test/test.component';
+import { TestComponent } from './test/test.component';
 import { CartComponent } from './components/cart/cart.component';
 import { registerLocaleData } from '@angular/common';
 import { ExponentialPipe } from './exponential.pipe';
 import { HighlightDirective } from './highlight.directive';
+import { HomeComponent } from './home/home.component';
+import { ProductsComponent } from './products/products.component';
+import { ContactComponent } from './contact/contact.component';
 
 registerLocaleData(localeEs);
 
@@ -21,7 +24,10 @@ registerLocaleData(localeEs);
     TestComponent,
     CartComponent,
     ExponentialPipe,
-    HighlightDirective
+    HighlightDirective,
+    HomeComponent,
+    ProductsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
