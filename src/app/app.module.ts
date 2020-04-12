@@ -9,15 +9,14 @@ import { ProductComponent } from './components/product/product.component'
 import { TestComponent } from './test/test.component';
 import { CartComponent } from './components/cart/cart.component';
 import { registerLocaleData } from '@angular/common';
-import { ExponentialPipe } from './exponential.pipe';
-import { HighlightDirective } from './highlight.directive';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { LayoutComponent } from './layout/layout.component';
+
+import { SharedModule } from './shared/shared.module'
+import { CoreModule } from './core/core.module'
 
 registerLocaleData(localeEs);
 
@@ -27,12 +26,8 @@ registerLocaleData(localeEs);
     ProductComponent,
     TestComponent,
     CartComponent,
-    ExponentialPipe,
-    HighlightDirective,
     ProductsComponent,
     ContactComponent,
-    HeaderComponent,
-    FooterComponent,
     NotFoundComponent,
     ProductDetailComponent,
     LayoutComponent
@@ -40,7 +35,9 @@ registerLocaleData(localeEs);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    CoreModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'es-mx' } ],
   bootstrap: [AppComponent]
