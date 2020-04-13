@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { CartComponent } from './components/cart/cart.component';
 import { registerLocaleData } from '@angular/common';
-import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 
@@ -22,7 +21,6 @@ registerLocaleData(localeEs);
     AppComponent,
     TestComponent,
     CartComponent,
-    ContactComponent,
     NotFoundComponent,
     LayoutComponent
   ],
