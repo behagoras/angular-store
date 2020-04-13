@@ -14,6 +14,7 @@ import localeEs from '@angular/common/locales/es-MX';
 import { ProductsRoutingModule } from './product-routing.module';
 
 import { AppComponent } from '../app.component';
+import { MaterialModule } from '../material/material.module';
 
 registerLocaleData(localeEs);
 
@@ -29,6 +30,7 @@ registerLocaleData(localeEs);
     CoreModule,
     SharedModule,
     ProductsRoutingModule,
+    MaterialModule,
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'es-mx' } ],
   bootstrap: [AppComponent]
