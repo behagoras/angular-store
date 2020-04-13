@@ -1,6 +1,11 @@
 <div class="products">
+  <div id="new-product">
+    <button (click)="createProduct()" mat-raised-button color="secondary" >
+      Crear Producto
+    </button>
+  </div>
   <app-product appHighlight *ngFor="let product of products"
-    (clickAddToCart)="handleProductAddToCart($event)"
-    [product]="product"
+  (clickAddToCart)="handleProductAddToCart($event)"
+  [product]="product"
   ></app-product>
 </div>

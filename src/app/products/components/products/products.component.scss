@@ -3,9 +3,22 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 50px;
   justify-items: space-around;
+  & #new-product {
+    // min-height: 100px;
+    padding: 10px;
+    min-height: 200px;
+    width: 100%;
+    & button {
+      height: calc(100% - 20px);
+      width: calc(100% - 20px);
+    }
+  }
 }
 
 .mat-card-image {
   max-height: 300px!important;
   width: 100%;
 }
+
+
+

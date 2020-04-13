@@ -24,10 +24,27 @@ export class ProductsComponent implements OnInit {
 
   fetchProducts(): void {
     this.productsService.getAllProducts()
-      .subscribe((products)=>{
+      .subscribe((products) => {
         this.products = products;
         // console.log(products);
       });
+  }
+
+  createProduct() {
+    console.log("holi");
+    const newProduct: Product = {
+      id: '223',
+      title: 'nuevo desde Angular',
+      image: 'assets/images/banner-1.jpg',
+      price: 123,
+      description:'Descripción Angulera'
+    }
+    // console.log("creating product")
+    this.productsService.createProduct(newProduct)
+    .subscribe((product) => {
+      this.products.push(newProduct);
+      console.log(product);
+    });
   }
 
 }
