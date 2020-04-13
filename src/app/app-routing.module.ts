@@ -6,6 +6,8 @@ import { TestComponent } from './test/test.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 
+import { AdminGuard } from './guardians/admin.guard'
+
 const routes: Routes = [
   {
     path: '',
@@ -26,12 +28,14 @@ const routes: Routes = [
       },
       {
         path: 'contact',
+        // canActivate: [AdminGuard],
         component: ContactComponent
       },
     ]
   },
   {
     path: 'demo',
+    canActivate: [AdminGuard],
     component: TestComponent
   },
   {
