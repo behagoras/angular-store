@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "serve dist/platzi-store",
+    "dev": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -23,6 +24,7 @@
     "@angular/router": "~9.1.0",
     "flexboxgrid": "^6.3.1",
     "rxjs": "~6.5.4",
+    "serve": "^11.3.0",
     "swiper": "^5.3.7",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
