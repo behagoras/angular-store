@@ -4,7 +4,7 @@
 <div>
   <ul>
     <li>Nombre: {{product.title}}</li>
-    <li>Precio: {{product.price}}</li>
+    <li>Precio: {{product.price | currency:'MXN':true }}</li>
   </ul>
   <p>{{product.description}}</p>
 </div>
