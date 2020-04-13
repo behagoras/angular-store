@@ -15,7 +15,7 @@
     <th mat-header-cell *matHeaderCellDef> actions </th>
     <td mat-cell *matCellDef="let product">
       <button mat-raised-button>Editar</button>
-      <button mat-raised-button color="warn">Eliminar</button>
+      <button mat-raised-button color="warn" (click)="deleteProduct(product.id)">Eliminar</button>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
