@@ -11,14 +11,23 @@ export class ProductsComponent implements OnInit {
 
   constructor(private productsService: ProductsService) { }
 
-  products: Product[];
+  products: Product[] = [];
 
   handleProductAddToCart(id: number) {
     console.log('product -> id', id);
   }
 
   ngOnInit(): void {
-    this.products = this.productsService.getAllProducts();
+    this.fetchProducts();
+    // this.products = this.productsService.getAllProducts();
+  }
+
+  fetchProducts(): void {
+    this.productsService.getAllProducts()
+      .subscribe((products)=>{
+        this.products = products;
+        // console.log(products);
+      });
   }
 
 }

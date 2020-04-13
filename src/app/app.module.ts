@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 import localeEs from '@angular/common/locales/es-MX';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,7 +32,8 @@ registerLocaleData(localeEs);
     FormsModule,
     SharedModule,
     CoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'es-mx' } ],
   bootstrap: [AppComponent]
