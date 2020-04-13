@@ -33,8 +33,8 @@ const routes: Routes = [
   },
   {
     path: 'demo',
-    canActivate: [AdminGuard],
-    component: TestComponent
+    // canActivate: [AdminGuard],
+    loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule)
   },
   {
     path: '**',
