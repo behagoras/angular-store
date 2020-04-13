@@ -1,7 +1,10 @@
 nav a {
-  padding:5px;
+  padding:5px 10px;
   text-decoration: none;
   &.active {
-    background-color: papayawhip;
+    background-color:rgba(255, 255, 255, 0.13);
   }
+}
+.header-row {
+  width: 100%;
 }
