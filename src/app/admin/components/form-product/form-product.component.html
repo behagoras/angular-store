@@ -21,7 +21,9 @@
       <div class="row">
         <div class="col-xs">
           <mat-form-field>
-            <input placeholder="price" formControlName="price" matInput type="number">
+            <input placeholder="price" #price formControlName="price" matInput
+            type="number">
+            <mat-hint *ngIf="priceField.errors" align="start">The price is invalid</mat-hint>
           </mat-form-field>
         </div>
       </div>
@@ -35,7 +37,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button type="submit">Guardar</button>
+      <button [disabled]="form.invalid" mat-raised-button type="submit">Guardar</button>
     </mat-card-actions>
   </mat-card>
 </form>
