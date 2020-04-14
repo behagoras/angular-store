@@ -17,7 +17,7 @@ routerLinkActive="router-link-active">Crear producto</a>
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> actions </th>
     <td mat-cell *matCellDef="let product">
-      <button mat-raised-button>Editar</button>
+      <button mat-raised-button [routerLink]="['edit',product.id]">Editar</button>
       <button mat-raised-button color="warn" (click)="deleteProduct(product.id)">Eliminar</button>
     </td>
   </ng-container>
