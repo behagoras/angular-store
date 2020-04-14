@@ -1,11 +1,12 @@
-// :host {// Se refiere al componente padre, en este caso app-product
-//   border: 1px solid black;
-//   display: block;
-//   border-radius: 5px;
-//   padding: 20px;
-// }
-// figure {
-//   & img {
-//     max-width: 100%;
-//   }
-// }
+.crop-image{
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

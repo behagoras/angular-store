@@ -7,7 +7,9 @@
       {{ product.price | currency:'MXN':true }}
     </mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="product.image" [alt]="product.description" class="crop-image">
+  <div class="crop-image">
+    <img [src]="product.image" alt="">
+  </div>
   <mat-card-content>
     <p>{{ product.description | slice:0:10 }}</p>
     <p>{{ today | date:'longDate'}}</p>
