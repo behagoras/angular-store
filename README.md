@@ -100,7 +100,7 @@ El primero hace un enlace de doble sentido, es decir, si se actualiza la vista s
 
 El segundo hace un enlace de un sólo sentido, este sentido va desde el modelo a la vista, pero la vista NO puede actualizar al modelo. Pueden copiar y pegar este código para comprobarlo.
 
-## String interpolation
+# String interpolation
 
 La interpolación es la forma de mostrar datos del **Componente** al **DOM** (esa representación que hace el browser del **HTML** con forma de objetos). Su notación es en forma de doble brackets `{{}}` () y lo que está dentro de esos brackets es lo que se quiere mostrar en pantalla «procesado».
 
@@ -330,27 +330,14 @@ El event es recibido desde el `emit` del `EventEmmiter` :
 
 ## `Observables`
 
-Para comunicar dos componentes hermanos o componentes que no estan relacionados podemos usar **observables**, estos [articulos](https://desarrolloweb.com/articulos/introduccion-teorica-observables-angular.html) y esta clase de [observables angular 2](https://platzi.com/clases/1071-angular2/6433-que-es-un-observable/) me ayudaron.
+### Referencias:
 
-supongamos que necesito pasar un parámetro que en la vista(html) tenga un nombre pero al pasar a la lógica de la aplicación(ts) deba tener otro.
+- https://desarrolloweb.com/articulos/introduccion-teorica-observables-angular.html  
+- https://platzi.com/clases/1071-angular2/6433-que-es-un-observable/
 
-**productos.component.html**
+Observable es un patrón de diseño de software, donde básicamente tienes algo que observar (Observable) pueden ser eventos de un formulario, un llamada Htttp, etc, nosotros podemos suscribirnos a esos eventos. Otro componente importante es el que observa (Observer) este es el que se suscribe a los eventos y por medio de callbacks captura los eventos que emite el observable, por último tenemos el subject o sujeto que es el que hace que el observable lance los eventos para ser capturados.
 
-```typescript
-<app-producto *ngFor="let product of products" [product] = 'product'> 
-
-</app-producto>
-```
-
-**producto.component.ts**
-
-```typescript
-@Input('product') producto: any;
-```
-
-la variable pasa con el nombre de product pero en la lógica de la aplicación se llamara producto.
-
-El ejemplo no es el mas practico debido a que todo debería estar con los mismos nombres y en el mismo idioma, pero sirve para explicar el concepto.
+Un Observer crea un espacio de ejecución independiente para cada suscriptor que este tenga.
 
 # Ciclo de vida del componente
 
@@ -954,3 +941,99 @@ export class ProductsService {
   }
 }
 ```
+
+# Ambientes en Angular
+
+Un entorno de aplicación en Angular (environment) es información de configuración JSON que le dice al sistema de compilación qué archivos cambiar cuando usa ng build y ng serve.
+
+La recomendación es hacer ambientes dentro del directorio `environments/environment.[nombre].ts`, y para registrarlo necesitas modificar el archivo `angular.json`
+
+Para agregar un nuevo ambiente al `angular.json` se necesitan duplicar el environment de **`build`** y de **`serve`** dentro de **projects.<project-name>.architect.build.configurations.nameOfNewEnvironment** y de **projects.<project-name>.architect.serve.configurations.production** y cambiar production por el nombre que quieras que reciba tu environment, como staging o local, etc.
+
+Recuerda que es muy delicado este archivo y que lo tienes que hacer a conciencia, además de que tienes que colocar la ruta de tu archivo de environments en `fileReplacements`, porque lo que hace este archivo es reemplazar las ocurrencias de importación de `src/environments/environment.ts` por el archivo de ambiente que le indiques.
+
+```json
+{
+  projects: {
+    nameOfProject: {
+      ...
+      architect: {
+        build: {
+          ...
+          production: {} <-- Duplicar este objeto
+        },
+        serve: {
+          configurations: {
+            ...
+            production: {} <-- Duplicar este objeto
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+# Formularios Reactivos
+
+Los formularios reactivos ayudan a manejar entradas de formulario cuyos valores cambian con un enfoque explícito e inmutable para administrar el estado de un formulario en un momento dado.
+
+Los formularios reactivos difieren de los [formularios basadas en plantillas](https://angular.io/guide/forms) en los siguientes puntos.
+
+- Las formas reactivas son predecibles al ser síncronas con el modelo de datos
+- Son inmutables, por lo tanto cada cambio en el estado del formulario devuelve un nuevo estado,
+- seguimiento de cambios a través de streams observables.
+
+- Proporcionan una ruta directa a las pruebas porque tiene la seguridad de que sus datos son consistentes y predecibles cuando se solicitan.
+- Cualquier consumidor de los streams tiene acceso para manipular estos datos de manera segura
+- Se construyen alrededor de [observable](https://angular.io/guide/glossary#observable) streams
+
+Además proveen métodos más sencillos para:
+
+- La validación de datos
+- Realización de pruebas unitarias:  porque tienes la seguridad de que sus datos son consistentes y predecibles al momento de solicitarlos.
+- Tener lógicas más complejas
+
+## `FormControl`
+
+Un input de tipo FormControl permite la anidación de validadores (ValidatorFn) con los que podemos de manera sencilla validar la fuente de datos.
+
+```typescript
+FormControl(
+  formState?: any, 
+  validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions, 
+  asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[]
+): FormControl
+```
+
+Se definen detro de una variable de tipo `FormControl()` y se pueden llamar en el template:
+
+```typescript
+// component.component.ts
+export class Component implements OnInit {
+  emailField: FormControl;
+  constructor() {
+    this.emailField =  new FormControl('', [
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.minLength(4),
+      Validators.email,
+      Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)
+    ]);
+  }
+}
+```
+
+```html
+<!-- component.component.html -->
+<input type="email" [formControl]="emailField">
+{{ emailField.valid }} <!-- Imprime true o false si el input es válido -->
+```
+
+
+
+# Reactive programming
+
+- [Rxjs](https://rxjs-dev.firebaseapp.com/guide/)
+- [Operators](https://rxjs-dev.firebaseapp.com/guide/operators)
+
