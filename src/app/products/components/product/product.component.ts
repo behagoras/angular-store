@@ -12,6 +12,7 @@ import {
 import { Product } from '../../../product.model';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-MX';
+import { CartService } from '../../../core/services/cart.service';
 
 registerLocaleData(localeEs);
 @Component({
@@ -22,7 +23,9 @@ registerLocaleData(localeEs);
 
 export class ProductComponent implements OnChanges, OnInit, OnDestroy {
 
-  constructor() {
+  constructor(
+    private cartService: CartService,
+  ) {
     let i = 1;
     console.log('0. Constructor producto');
   }
@@ -54,5 +57,6 @@ export class ProductComponent implements OnChanges, OnInit, OnDestroy {
   @Output() clickAddToCart = new EventEmitter<any>(); // (clickAddToCart)= eventHandler($event):function
   addToCart(){
     this.clickAddToCart.emit(this.product.id)
+    this.cartService.addToCart(this.product);
   }
 }
