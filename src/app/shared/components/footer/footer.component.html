@@ -35,10 +35,13 @@
       <div class="col-xs-12 col-md-4">
         <div class="box">
           <h3>Contacto</h3>
-          <!-- <mat-form-field color="accent" class="full-width">
-                <input [formControl]="emailInput" matInput placeholder="Su correo" type="email">
-              </mat-form-field>
-              <button (click)="registerMail()" [disabled]="emailInput.invalid" mat-raised-button color="accent">Suscribirse</button> -->
+          <mat-form-field appearance="fill">
+            <mat-label>Email Address</mat-label>
+            <input type="email" [formControl]="emailField" matInput #input placeholder="email@domain.com">
+            <mat-hint *ngIf="emailField.invalid" align="start">Enter a valid email address</mat-hint>
+            <mat-hint align="end">{{input.value?.length || 0}}/20</mat-hint>
+          </mat-form-field>
+          <button mat-raised-button [disabled]="emailField.invalid" (click)="sendEmail()">Enviar</button>
         </div>
       </div>
     </div>
